@@ -97,13 +97,11 @@ To get networking in initrd: add the module(s) result of this command to **boot.
 ## Handling the system
 
 ### Update package definitions
-nix flake update (run from /etc/nixos folder)
-
+    cd /etc/nixos
+    nix flake update 
 ### Build system
-nixos-rebuild switch --flake /etc/nixos/.#ezbox
-
-### System clean
-Remove old boot entries: nix-collect-garbage -d
-
+    nixos-rebuild switch --flake /etc/nixos/.#ezbox
+### System clean (remove old boot entries):
+    nix-collect-garbage -d
 ### Remote password prompt at boot
-systemctl default
+    systemctl default
