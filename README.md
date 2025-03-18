@@ -28,7 +28,7 @@ Supports basically anything nixos/linux is capable of doing. Can be extended wit
 
 
 ## Download Installation media
-get an iso from https://nixos.org/download/
+Get an iso from [nixos](https://nixos.org/download/).
 Minimal iso recommended for a text based install. Write it to usb and boot. Follow the installation guide but use this repository as a replacement for the nixos folder.
 
 ## Disk
@@ -78,7 +78,7 @@ if drive is **/dev/nvme0n1**
 **Edit** or at least check all files in /etc/nixos.
 Anything in **configuration** folder can be changed. The **router** folder contains system setup and should not have to be changed.
 
-## Cofiguration
+## Configuration
 * default.nix - Decides which other nix-files are included in the setup.
 * disks.nix - disks and mounts
 * overlays.nix - can be used to change versions of packages etc.
