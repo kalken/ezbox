@@ -6,7 +6,6 @@
 
 {
   imports = [ 
-    # Include the results of the hardware scan.
     ./overlays.nix
     ./boot.nix
     ./system.nix
