@@ -105,3 +105,26 @@ To get networking in initrd: add the module(s) result of this command to **boot.
     nix-collect-garbage -d
 ### Remote password prompt at boot
     systemctl default
+
+## Tips & Trix
+
+### Configure WireGuard interface for Mullvad
+There are several ways to configure a WireGuard interface for netns mullvad. Either by declaring the file **/etc/eznetns/mullvad/wireguard/wg0-mullvad.conf** in **/etc/nixos/configuration/netns/mullvad.nix** or using the helper tools to manually setup the interface. This will configure interface wg0-mullvad to be a random server in se-got, and bring it up: 
+
+    wg-mullvad --account XXXXXXXXX --filter se-got --settings-file /root/.config/ezwgen/mullvad/wg0-mullvad.conf --output-dir /root/.config/ezwgen/mullvad/wg0-mullvad
+    ezwgen --netns mullvad --dev wg0-mullvad
+    eznetns mullvad wg.reload wg0-mullvad
+    
+### Running a systemd service inside netns
+
+This would bring up myservice inside mullvad netns:
+
+    # in configuration/netns/mullvad.nix
+    
+    # services
+    services.myservice.enable = true; (configured as a normal nixos service)
+    
+    # put services in netns (note that a nixos service-file could start several systemd services
+    # put each of them in the netns:
+    systemd.services.myservice = netnsService;
+     
