@@ -28,6 +28,12 @@ in
 {
   # netns configuration
   environment.etc = {
+    "eznetns/${netns}/resolv.conf" = {
+      text = ''
+        nameserver 10.64.0.1
+        nameserver fc00:bbbb:bbbb:bb01::1
+      '';
+    };
     "eznetns/${netns}/nsswitch.conf" = {
       text = ''
         passwd:         files
