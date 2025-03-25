@@ -30,6 +30,7 @@ let
         DHCPPrefixDelegation = true;
         IPv6SendRA = true;
         IPv6AcceptRA = false;
+        ConfigureWithoutCarrier=true;
       };
       linkConfig = {
         RequiredForOnline = "routable";
