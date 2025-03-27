@@ -61,7 +61,7 @@ if drive is **/dev/nvme0n1**
     nixos-generate-config --no-filesystems --root /mnt
     
     # move ezbox files to /mnt/etc/nixos
-    cp -r path/to/folder /mnt/etc/nixos
+    cp -r path/to/folder/* /mnt/etc/nixos
     
     # edit the files to make it your system
     # you should edit the files in /mnt/etc/nixos/configuration folder.
